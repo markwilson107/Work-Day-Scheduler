@@ -20,4 +20,20 @@ $(document).ready(function () {
     // Adds date data too #currentDay
     $("#currentDay").text(dayNames[d.getDay()] + ", " + monthNames[d.getMonth()] + " " + d.getDate() + nth(d.getDate()));
 
+    //---Retrieve local storage data---
+    for (var i = 0; i < 9; i++) {
+        if (localStorage.getItem("rowText" + i) !== null) {
+            $("#rowText" + i).text(localStorage.getItem("rowText" + i));
+        }
+    }
+})
+
+//---Save Button---
+$("button").on("click", function () {
+    var btnIndex = $(this).attr("index");
+    var userInput = $("#rowText" + btnIndex).val();
+    if (userInput !== "") {
+        // Saves current hour text to local storage
+        localStorage.setItem("rowText" + btnIndex, userInput);
+    }
 })
