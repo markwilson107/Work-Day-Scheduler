@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //---Time (Current hour in 24h time)---
     const currentHour = parseInt(moment().format('HH'));
-    
+
     //---Date---
     $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm a'));
 
@@ -14,14 +14,17 @@ $(document).ready(function () {
         }
         // Test if row is current
         if ($("#rowText" + i).attr("hour") === currentHour) {
+            // Colours row red
             $("#rowText" + i).addClass("present");
         }
         // Tests if row is future
         else if ($("#rowText" + i).attr("hour") >= currentHour) {
+            // Colours row green
             $("#rowText" + i).addClass("future");
         }
         // Tests if row is past
         else if ($("#rowText" + i).attr("hour") <= currentHour) {
+            // Colours row grey
             $("#rowText" + i).addClass("past");
         }
     }
