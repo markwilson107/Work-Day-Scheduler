@@ -13,17 +13,18 @@ $(document).ready(function () {
             $("#rowText" + i).text(localStorage.getItem("rowText" + i));
         }
         // Test if row is current
-        if ($("#rowText" + i).attr("hour") === currentHour) {
+        if (parseInt($("#rowText" + i).attr("hour")) === currentHour) {
             // Colours row red
             $("#rowText" + i).addClass("present");
+            console.log("worked");
         }
         // Tests if row is future
-        else if ($("#rowText" + i).attr("hour") >= currentHour) {
+        else if ($("#rowText" + i).attr("hour") > currentHour) {
             // Colours row green
             $("#rowText" + i).addClass("future");
         }
         // Tests if row is past
-        else if ($("#rowText" + i).attr("hour") <= currentHour) {
+        else if ($("#rowText" + i).attr("hour") < currentHour) {
             // Colours row grey
             $("#rowText" + i).addClass("past");
         }
