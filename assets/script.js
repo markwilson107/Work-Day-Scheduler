@@ -35,8 +35,6 @@ $(document).ready(function () {
 $("button").on("click", function () {
     var btnIndex = $(this).attr("index");
     var userInput = $("#rowText" + btnIndex).val();
-    if (userInput !== "") {
         // Saves corresponding text to local storage
         localStorage.setItem("rowText" + btnIndex, userInput);
-    }
 })
